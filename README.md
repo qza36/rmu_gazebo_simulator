@@ -66,7 +66,7 @@ cd ~/ros_ws
 ```
 
 ```bash
-git clone https://github.com/SMBU-PolarBear-Robotics-Team/rmu_gazebo_simulator.git src/rmu_gazebo_simulator
+git https://github.com/qza36/rmu_gazebo_simulator.git src/rmu_gazebo_simulator
 ```
 
 #### 2.2.3 Build
