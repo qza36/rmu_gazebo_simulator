@@ -25,12 +25,6 @@ from xmacro.xmacro4sdf import XMLMacro4sdf
 
 
 def generate_launch_description():
-    # Map fully qualified names to relative ones so the node's namespace can be prepended.
-    # In case of the transforms (tf), currently, there doesn't seem to be a better alternative
-    # https://github.com/ros/geometry2/issues/32
-    # https://github.com/ros/robot_state_publisher/pull/30
-    # TODO(orduno) Substitute with `PushNodeRemapping`
-    #              https://github.com/ros2/launch_ros/issues/56
     remappings = [("/tf", "tf"), ("/tf_static", "tf_static")]
 
     pkg_simulator = get_package_share_directory("rmu_gazebo_simulator")
@@ -47,7 +41,6 @@ def generate_launch_description():
     bridge_config = os.path.join(pkg_simulator, "config", "ros_gz_bridge.yaml")
     robot_config = os.path.join(pkg_simulator, "config", "base_params.yaml")
 
-    # Get spawn robot init pose
     gz_world_path = os.path.join(pkg_simulator, "config", "gz_world.yaml")
     with open(gz_world_path) as file:
         config = yaml.safe_load(file)
@@ -60,16 +53,13 @@ def generate_launch_description():
     ld = LaunchDescription()
 
     for robot in robots:
-        # Generate SDF from xmacro
         xmacro.generate({"global_initial_color": robot["color"]})
         robot_xml = xmacro.to_string()
 
-        # Generate URDF from SDF
         urdf_generator = UrdfGenerator()
         urdf_generator.parse_from_sdf_string(robot_xml)
         robot_urdf_xml = urdf_generator.to_string()
 
-        # replace the <robot_name> in the bridge config file
         aft_replace_ros_bridge_params = ReplaceString(
             source_file=bridge_config,
             replacements={"<robot_name>": robot["name"]},
@@ -107,7 +97,7 @@ def generate_launch_description():
             package="robot_state_publisher",
             executable="robot_state_publisher",
             namespace=robot["name"],
-            remappings=remappings,
+            remappings=[],
             parameters=[
                 {
                     "use_sim_time": True,
@@ -123,8 +113,14 @@ def generate_launch_description():
             parameters=[{"config_file": aft_replace_ros_bridge_params}],
         )
 
-        # Execute service call after spawning robots
-        # https://gazebosim.org/api/gazebo/6.9/levels.html#Runtime-performers
+        odom_to_tf = Node(
+            package="rmu_gazebo_simulator",
+            executable="odom_to_tf.py",
+            namespace=robot["name"],
+            parameters=[{"use_sim_time": True}],
+            remappings=[],
+        )
+
         set_performer_service = ExecuteProcess(
             cmd=[
                 "ign",
@@ -147,6 +143,7 @@ def generate_launch_description():
         ld.add_action(robot_base)
         ld.add_action(robot_state_publisher)
         ld.add_action(robot_ign_bridge)
+        ld.add_action(odom_to_tf)
         ld.add_action(set_performer_service)
 
     return ld

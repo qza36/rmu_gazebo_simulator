@@ -95,7 +95,7 @@ ros2 launch rmu_gazebo_simulator bringup_sim.launch.py
 控制机器人移动
 
 ```sh
-ros2 run rmoss_gz_base test_chassis_cmd.py --ros-args -r __ns:=/red_standard_robot1/robot_base -p v:=0.3 -p w:=0.3
+ros2 run rmoss_gz_base test_chassis_cmd.py --ros-args -r __ns:=/robot/robot_base -p v:=0.3 -p w:=0.3
 #根据提示进行输入，支持平移与自旋
 ```
 

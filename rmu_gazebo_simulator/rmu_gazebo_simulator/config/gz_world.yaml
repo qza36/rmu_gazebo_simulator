@@ -62,7 +62,7 @@ robots:
       z_pose: "0.28"
       yaw: "3.14"
   rmul_2026:
-    - name: "red_standard_robot1"
+    - name: "robot"
       color: "red"
       x_pose: "-3.6256"
       y_pose: "2.424"

@@ -7,6 +7,7 @@ ament_environment_hooks("${CMAKE_CURRENT_SOURCE_DIR}/env-hooks/gazebo.dsv.in")
 
 install(PROGRAMS
   scripts/referee_system/simple_competition_1v1.py
+  scripts/odom_to_tf.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
