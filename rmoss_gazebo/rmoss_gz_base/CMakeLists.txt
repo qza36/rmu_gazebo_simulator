@@ -105,6 +105,7 @@ install(PROGRAMS
         scripts/test_gimbal_cmd.py
         scripts/test_gimbal_cmd2.py
         scripts/test_shoot_cmd.py
+        scripts/cmd_vel_relay.py
     DESTINATION lib/${PROJECT_NAME})
 
 # test

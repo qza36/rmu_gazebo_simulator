@@ -112,6 +112,10 @@ ros2 run rmoss_gz_base test_gimbal_cmd.py --ros-args -r __ns:=/red_standard_robo
 ros2 run rmoss_gz_base test_shoot_cmd.py --ros-args -r __ns:=/red_standard_robot1/robot_base
 #根据提示进行输入
 ```
+导航接口
+```sh
+ros2 run rmoss_gz_base cmd_vel_relay.py
+```
 
 #### 2.3.2 网页端控制
 
