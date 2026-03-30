@@ -1,7 +1,7 @@
 /*******************************************************************************
  *  Copyright (c) 2020 robomaster-oss, All rights reserved.
  *
- *  This program is free software: you can redistribute it and/or modify it 
+ *  This program is free software: you can redistribute it and/or modify it
  *  under the terms of the MIT License, See the MIT License for more details.
  *
  *  You should have received a copy of the MIT License along with this program.
@@ -10,35 +10,36 @@
  ******************************************************************************/
 #include <mutex>
 #include <map>
-#include <ignition/common/Util.hh>
-#include <ignition/plugin/Register.hh>
-#include <ignition/transport/Node.hh>
+#include <gz/common/Util.hh>
+#include <gz/plugin/Register.hh>
+#include <gz/transport/Node.hh>
+#include <gz/msgs/int32.pb.h>
 
-#include <ignition/gazebo/components/ParentEntity.hh>
-#include <ignition/gazebo/components/Visual.hh>
-#include <ignition/gazebo/components/Model.hh>
-#include <ignition/gazebo/components/Name.hh>
-#include <ignition/gazebo/components/Link.hh>
-#include <ignition/gazebo/components/Material.hh>
+#include <gz/sim/components/ParentEntity.hh>
+#include <gz/sim/components/Visual.hh>
+#include <gz/sim/components/Model.hh>
+#include <gz/sim/components/Name.hh>
+#include <gz/sim/components/Link.hh>
+#include <gz/sim/components/Material.hh>
 
-#include <ignition/gazebo/SdfEntityCreator.hh>
+#include <gz/sim/SdfEntityCreator.hh>
 
-#include <ignition/gazebo/Link.hh>
-#include <ignition/gazebo/Model.hh>
-#include <ignition/gazebo/Util.hh>
-#include <ignition/gazebo/Conversions.hh>
+#include <gz/sim/Link.hh>
+#include <gz/sim/Model.hh>
+#include <gz/sim/Util.hh>
+#include <gz/sim/Conversions.hh>
 
 #include "LightBarController.hh"
 
-using namespace ignition;
-using namespace gazebo;
+using namespace gz;
+using namespace sim;
 using namespace systems;
 
 
 sdf::Material GetMaterial(int state){
     sdf::Material m;
-    ignition::math::Color color;
-    ignition::math::Color emissiveColor;
+    gz::math::Color color;
+    gz::math::Color emissiveColor;
 
     if(state == 0){
         color.Set(1, 1, 1, 1);
@@ -80,11 +81,11 @@ struct VisualEntityInfo {
     }
 };
 
-class ignition::gazebo::systems::LightBarControllerPrivate
+class gz::sim::systems::LightBarControllerPrivate
 {
 public:
-    void OnCmd(const ignition::msgs::Int32 &_msg);
-    void Init(ignition::gazebo::EntityComponentManager &_ecm);
+    void OnCmd(const gz::msgs::Int32 &_msg);
+    void Init(gz::sim::EntityComponentManager &_ecm);
     void UpdateVisualEnitiies();
 
 public:
@@ -117,7 +118,7 @@ void LightBarController::Configure(const Entity &_entity,
     this->dataPtr->model = Model(_entity);
     if (!this->dataPtr->model.Valid(_ecm))
     {
-        ignerr << "LightBarController plugin should be attached to a model entity. Failed to initialize." << std::endl;
+        gzerr << "LightBarController plugin should be attached to a model entity. Failed to initialize." << std::endl;
         return;
     }
     // Get params from SDF
@@ -126,7 +127,7 @@ void LightBarController::Configure(const Entity &_entity,
     {
         controller_name = _sdf->Get<std::string>("controller_name");
     }
-    
+
     if (_sdf->HasElement("initial_color"))
     {
         std::map<std::string,int> color_map{{"none",0},{"red",1},{"blue",2},{"yellow",3},{"white",4}};
@@ -135,7 +136,7 @@ void LightBarController::Configure(const Entity &_entity,
             this->dataPtr->targetState = color_map[color];
             this->dataPtr->change = true;
         }else{
-            ignwarn << "LightBarController color [" << color << "] is invalid." << std::endl;
+            gzwarn << "LightBarController color [" << color << "] is invalid." << std::endl;
         }
     }
     // link_visual
@@ -154,11 +155,11 @@ void LightBarController::Configure(const Entity &_entity,
     // Subscribe to commands
     std::string topic{this->dataPtr->model.Name(_ecm) +"/"+controller_name+ "/set_state"};
     this->dataPtr->node.Subscribe(topic, &LightBarControllerPrivate::OnCmd, this->dataPtr.get());
-    ignmsg << "LightBarController subscribing to int32 messages on [" << topic << "]" << std::endl;
+    gzmsg << "LightBarController subscribing to int32 messages on [" << topic << "]" << std::endl;
 }
 
-void LightBarController::PreUpdate(const ignition::gazebo::UpdateInfo &_info,
-                             ignition::gazebo::EntityComponentManager &_ecm)
+void LightBarController::PreUpdate(const gz::sim::UpdateInfo &_info,
+                             gz::sim::EntityComponentManager &_ecm)
 {
     if(_info.paused){
         return;
@@ -176,7 +177,7 @@ void LightBarController::PreUpdate(const ignition::gazebo::UpdateInfo &_info,
                 info.state = 0;
                 info.visualSdf.SetMaterial(targetMaterial);
             }
-            this->dataPtr->change = false; 
+            this->dataPtr->change = false;
             this->dataPtr->isDone = false;
         }
     }
@@ -196,14 +197,14 @@ void LightBarController::PreUpdate(const ignition::gazebo::UpdateInfo &_info,
 
 
 /******************implementation for LightBarControllerPrivate******************/
-void LightBarControllerPrivate::OnCmd(const ignition::msgs::Int32 &_msg)
+void LightBarControllerPrivate::OnCmd(const gz::msgs::Int32 &_msg)
 {
     std::lock_guard<std::mutex> lock(this->targetMutex);
     this->targetState = _msg.data();
     this->change = true;
 }
 
-void LightBarControllerPrivate::Init(ignition::gazebo::EntityComponentManager &_ecm){
+void LightBarControllerPrivate::Init(gz::sim::EntityComponentManager &_ecm){
     bool flag = false;
     for(auto linkVisual : this->linkVisuals){
         flag = false;
@@ -218,7 +219,7 @@ void LightBarControllerPrivate::Init(ignition::gazebo::EntityComponentManager &_
             }
         }
         if(!flag){
-            ignerr << "LightBarController: visual element of link [" << linkVisual << "] is invaild" << std::endl;
+            gzerr << "LightBarController: visual element of link [" << linkVisual << "] is invaild" << std::endl;
         }
     }
 }
@@ -233,15 +234,15 @@ void LightBarControllerPrivate::UpdateVisualEnitiies(){
         }
         if(info.state<2){
             info.state++;
-        }  
+        }
     }
 }
 
 /******************register*************************************************/
-IGNITION_ADD_PLUGIN(LightBarController,
-                    ignition::gazebo::System,
+GZ_ADD_PLUGIN(LightBarController,
+                    gz::sim::System,
                     LightBarController::ISystemConfigure,
                     LightBarController::ISystemPreUpdate
                     )
 
-IGNITION_ADD_PLUGIN_ALIAS(LightBarController, "ignition::gazebo::systems::LightBarController")
+GZ_ADD_PLUGIN_ALIAS(LightBarController, "gz::sim::systems::LightBarController")

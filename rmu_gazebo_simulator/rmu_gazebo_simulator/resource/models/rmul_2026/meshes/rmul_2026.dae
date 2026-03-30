@@ -1,0 +1,1022 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <asset>
+  <contributor>
+   <author> Anonymous </author>
+   <authoring_tool> Collada Exporter for Blender 2.9+, by Gregery Barton </authoring_tool>
+  </contributor>
+  <created>2026-02-07T17:48:52Z  </created>
+  <modified>2026-02-07T17:48:52Z</modified>
+  <unit meter="1.0" name="meter"/>
+  <up_axis>Z_UP</up_axis>
+ </asset>
+ <library_images>
+ </library_images>
+ <library_effects>
+  <effect id="材质.011-effect" name="材质.011">
+   <profile_COMMON>
+    <technique sid="common">
+     <blinn>
+      <diffuse>
+       <color>0.0 0.0 0.0 0.0 </color>
+      </diffuse>
+      <transparent opaque="RGB_ONE">
+       <color>1.0 1.0 1.0 1.0</color>
+      </transparent>
+      <shininess>
+       <float>0.5</float>
+      </shininess>
+      <index_of_refraction>
+       <float>1.5</float>
+      </index_of_refraction>
+     </blinn>
+    </technique>
+   </profile_COMMON>
+  </effect>
+  <effect id="材质.003-effect" name="材质.003">
+   <profile_COMMON>
+    <technique sid="common">
+     <blinn>
+      <diffuse>
+       <color>0.0723 0.0887 0.4179 1.0 </color>
+      </diffuse>
+      <transparent opaque="RGB_ONE">
+       <color>1.0 1.0 1.0 1.0</color>
+      </transparent>
+      <shininess>
+       <float>0.5</float>
+      </shininess>
+      <index_of_refraction>
+       <float>1.5</float>
+      </index_of_refraction>
+     </blinn>
+    </technique>
+   </profile_COMMON>
+  </effect>
+  <effect id="材质.010-effect" name="材质.010">
+   <profile_COMMON>
+    <technique sid="common">
+     <blinn>
+      <diffuse>
+       <color>0.0 0.0 0.0 0.0 </color>
+      </diffuse>
+      <transparent opaque="RGB_ONE">
+       <color>1.0 1.0 1.0 1.0</color>
+      </transparent>
+      <shininess>
+       <float>0.5</float>
+      </shininess>
+      <index_of_refraction>
+       <float>1.5</float>
+      </index_of_refraction>
+     </blinn>
+    </technique>
+   </profile_COMMON>
+  </effect>
+  <effect id="材质.004-effect" name="材质.004">
+   <profile_COMMON>
+    <technique sid="common">
+     <blinn>
+      <diffuse>
+       <color>0.0723 0.0887 0.4179 1.0 </color>
+      </diffuse>
+      <transparent opaque="RGB_ONE">
+       <color>1.0 1.0 1.0 1.0</color>
+      </transparent>
+      <shininess>
+       <float>0.5</float>
+      </shininess>
+      <index_of_refraction>
+       <float>1.5</float>
+      </index_of_refraction>
+     </blinn>
+    </technique>
+   </profile_COMMON>
+  </effect>
+  <effect id="材质.005-effect" name="材质.005">
+   <profile_COMMON>
+    <technique sid="common">
+     <blinn>
+      <diffuse>
+       <color>0.1746 0.1746 0.1746 1.0 </color>
+      </diffuse>
+      <transparent opaque="RGB_ONE">
+       <color>1.0 1.0 1.0 1.0</color>
+      </transparent>
+      <shininess>
+       <float>0.5</float>
+      </shininess>
+      <index_of_refraction>
+       <float>1.5</float>
+      </index_of_refraction>
+     </blinn>
+    </technique>
+   </profile_COMMON>
+  </effect>
+  <effect id="材质.006-effect" name="材质.006">
+   <profile_COMMON>
+    <technique sid="common">
+     <blinn>
+      <diffuse>
+       <color>0.1746 0.1746 0.1746 1.0 </color>
+      </diffuse>
+      <transparent opaque="RGB_ONE">
+       <color>1.0 1.0 1.0 1.0</color>
+      </transparent>
+      <shininess>
+       <float>0.5</float>
+      </shininess>
+      <index_of_refraction>
+       <float>1.5</float>
+      </index_of_refraction>
+     </blinn>
+    </technique>
+   </profile_COMMON>
+  </effect>
+  <effect id="材质.009-effect" name="材质.009">
+   <profile_COMMON>
+    <technique sid="common">
+     <blinn>
+      <diffuse>
+       <color>0.0 0.0 0.0 0.0 </color>
+      </diffuse>
+      <transparent opaque="RGB_ONE">
+       <color>1.0 1.0 1.0 1.0</color>
+      </transparent>
+      <shininess>
+       <float>0.5</float>
+      </shininess>
+      <index_of_refraction>
+       <float>1.5</float>
+      </index_of_refraction>
+     </blinn>
+    </technique>
+   </profile_COMMON>
+  </effect>
+  <effect id="材质.007-effect" name="材质.007">
+   <profile_COMMON>
+    <technique sid="common">
+     <blinn>
+      <diffuse>
+       <color>0.2664 0.4179 0.5395 1.0 </color>
+      </diffuse>
+      <transparent opaque="RGB_ONE">
+       <color>1.0 1.0 1.0 1.0</color>
+      </transparent>
+      <shininess>
+       <float>0.5</float>
+      </shininess>
+      <index_of_refraction>
+       <float>1.5</float>
+      </index_of_refraction>
+     </blinn>
+    </technique>
+   </profile_COMMON>
+  </effect>
+  <effect id="材质.008-effect" name="材质.008">
+   <profile_COMMON>
+    <technique sid="common">
+     <blinn>
+      <diffuse>
+       <color>0.0 0.0 0.0 0.0 </color>
+      </diffuse>
+      <transparent opaque="RGB_ONE">
+       <color>1.0 1.0 1.0 1.0</color>
+      </transparent>
+      <shininess>
+       <float>0.5</float>
+      </shininess>
+      <index_of_refraction>
+       <float>1.5</float>
+      </index_of_refraction>
+     </blinn>
+    </technique>
+   </profile_COMMON>
+  </effect>
+  <effect id="材质.002-effect" name="材质.002">
+   <profile_COMMON>
+    <technique sid="common">
+     <blinn>
+      <diffuse>
+       <color>0.2961 0.3467 0.4179 1.0 </color>
+      </diffuse>
+      <transparent opaque="RGB_ONE">
+       <color>1.0 1.0 1.0 1.0</color>
+      </transparent>
+      <shininess>
+       <float>0.5</float>
+      </shininess>
+      <index_of_refraction>
+       <float>1.5</float>
+      </index_of_refraction>
+     </blinn>
+    </technique>
+   </profile_COMMON>
+  </effect>
+  <effect id="材质-effect" name="材质">
+   <profile_COMMON>
+    <technique sid="common">
+     <blinn>
+      <diffuse>
+       <color>0.4287 0.4287 0.4287 1.0 </color>
+      </diffuse>
+      <transparent opaque="RGB_ONE">
+       <color>1.0 1.0 1.0 1.0</color>
+      </transparent>
+      <shininess>
+       <float>0.5</float>
+      </shininess>
+      <index_of_refraction>
+       <float>1.5</float>
+      </index_of_refraction>
+     </blinn>
+    </technique>
+   </profile_COMMON>
+  </effect>
+  <effect id="材质.001-effect" name="材质.001">
+   <profile_COMMON>
+    <technique sid="common">
+     <blinn>
+      <diffuse>
+       <color>0.2961 0.3467 0.4179 1.0 </color>
+      </diffuse>
+      <transparent opaque="RGB_ONE">
+       <color>1.0 1.0 1.0 1.0</color>
+      </transparent>
+      <shininess>
+       <float>0.5</float>
+      </shininess>
+      <index_of_refraction>
+       <float>1.5</float>
+      </index_of_refraction>
+     </blinn>
+    </technique>
+   </profile_COMMON>
+  </effect>
+ </library_effects>
+ <library_materials>
+  <material id="材质.011-material" name="材质.011">
+   <instance_effect url="#材质.011-effect"/>
+  </material>
+  <material id="材质.003-material" name="材质.003">
+   <instance_effect url="#材质.003-effect"/>
+  </material>
+  <material id="材质.010-material" name="材质.010">
+   <instance_effect url="#材质.010-effect"/>
+  </material>
+  <material id="材质.004-material" name="材质.004">
+   <instance_effect url="#材质.004-effect"/>
+  </material>
+  <material id="材质.005-material" name="材质.005">
+   <instance_effect url="#材质.005-effect"/>
+  </material>
+  <material id="材质.006-material" name="材质.006">
+   <instance_effect url="#材质.006-effect"/>
+  </material>
+  <material id="材质.009-material" name="材质.009">
+   <instance_effect url="#材质.009-effect"/>
+  </material>
+  <material id="材质.007-material" name="材质.007">
+   <instance_effect url="#材质.007-effect"/>
+  </material>
+  <material id="材质.008-material" name="材质.008">
+   <instance_effect url="#材质.008-effect"/>
+  </material>
+  <material id="材质.002-material" name="材质.002">
+   <instance_effect url="#材质.002-effect"/>
+  </material>
+  <material id="材质-material" name="材质">
+   <instance_effect url="#材质-effect"/>
+  </material>
+  <material id="材质.001-material" name="材质.001">
+   <instance_effect url="#材质.001-effect"/>
+  </material>
+ </library_materials>
+ <library_geometries>
+  <geometry id="立方体.002" name="立方体.002">
+   <mesh>
+    <source id="立方体.002-positions">
+     <float_array id="立方体.002-positions-array" count="24">-1.0 -1.0 -1.0 -1.0 -1.0 1.0 -1.0 1.0 -1.0 -1.0 1.0 1.0 1.0 -1.0 -1.0 1.0 -1.0 1.0 1.0 1.0 -1.0 1.0 1.0 1.0</float_array>
+     <technique_common>
+      <accessor source="#立方体.002-positions-array" count="8" stride="3">
+       <param name="X" type="float"/>
+       <param name="Y" type="float"/>
+       <param name="Z" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <source id="立方体.002-normals">
+     <float_array id="立方体.002-normals-array" count="18">1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0 -1.0 0.0 -1.0 0.0 0.0 0.0 1.0 0.0</float_array>
+     <technique_common>
+      <accessor source="#立方体.002-normals-array" count="6" stride="3">
+       <param name="X" type="float"/>
+       <param name="Y" type="float"/>
+       <param name="Z" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <source id="立方体.002-texcoord">
+     <float_array id="立方体.002-texcoord-array" count="28">0.625 1.0 0.375 1.0 0.375 0.25 0.625 0.25 0.375 0.0 0.625 0.0 0.625 0.5 0.375 0.5 0.625 0.75 0.375 0.75 0.125 0.5 0.125 0.75 0.875 0.75 0.875 0.5</float_array>
+     <technique_common>
+      <accessor source="#立方体.002-texcoord-array" count="14" stride="2">
+       <param name="S" type="float"/>
+       <param name="T" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <vertices id="立方体.002-vertices">
+     <input semantic="POSITION" source="#立方体.002-positions"/>
+    </vertices>
+    <polylist count="6" material="symbol-0">
+     <input semantic="VERTEX" source="#立方体.002-vertices" offset="0"/>
+     <input semantic="NORMAL" source="#立方体.002-normals" offset="1"/>
+     <input semantic="TEXCOORD" source="#立方体.002-texcoord" offset="2" set="0"/>
+     <vcount>4 4 4 4 4 4</vcount>
+     <p>0 4 4 1 4 5 3 4 3 2 4 2 2 5 2 3 5 3 7 5 6 6 5 7 6 0 7 7 0 6 5 0 8 4 0 9 4 3 9 5 3 8 1 3 0 0 3 1 2 2 10 6 2 7 4 2 9 0 2 11 7 1 6 3 1 13 1 1 12 5 1 8</p>
+    </polylist>
+   </mesh>
+  </geometry>
+  <geometry id="立方体.003" name="立方体.003">
+   <mesh>
+    <source id="立方体.003-positions">
+     <float_array id="立方体.003-positions-array" count="24">-1.0 -1.0 -1.0 -1.0 -1.0 1.0 -1.0 1.0 -1.0 -1.0 1.0 1.0 1.0 -1.0 -1.0 1.0 -1.0 1.0 1.0 1.0 -1.0 1.0 1.0 1.0</float_array>
+     <technique_common>
+      <accessor source="#立方体.003-positions-array" count="8" stride="3">
+       <param name="X" type="float"/>
+       <param name="Y" type="float"/>
+       <param name="Z" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <source id="立方体.003-normals">
+     <float_array id="立方体.003-normals-array" count="18">1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0 -1.0 0.0 -1.0 0.0 0.0 0.0 1.0 0.0</float_array>
+     <technique_common>
+      <accessor source="#立方体.003-normals-array" count="6" stride="3">
+       <param name="X" type="float"/>
+       <param name="Y" type="float"/>
+       <param name="Z" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <source id="立方体.003-texcoord">
+     <float_array id="立方体.003-texcoord-array" count="28">0.625 1.0 0.375 1.0 0.375 0.25 0.625 0.25 0.375 0.0 0.625 0.0 0.625 0.5 0.375 0.5 0.625 0.75 0.375 0.75 0.125 0.5 0.125 0.75 0.875 0.75 0.875 0.5</float_array>
+     <technique_common>
+      <accessor source="#立方体.003-texcoord-array" count="14" stride="2">
+       <param name="S" type="float"/>
+       <param name="T" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <vertices id="立方体.003-vertices">
+     <input semantic="POSITION" source="#立方体.003-positions"/>
+    </vertices>
+    <polylist count="6" material="symbol-0">
+     <input semantic="VERTEX" source="#立方体.003-vertices" offset="0"/>
+     <input semantic="NORMAL" source="#立方体.003-normals" offset="1"/>
+     <input semantic="TEXCOORD" source="#立方体.003-texcoord" offset="2" set="0"/>
+     <vcount>4 4 4 4 4 4</vcount>
+     <p>0 4 4 1 4 5 3 4 3 2 4 2 2 5 2 3 5 3 7 5 6 6 5 7 6 0 7 7 0 6 5 0 8 4 0 9 4 3 9 5 3 8 1 3 0 0 3 1 2 2 10 6 2 7 4 2 9 0 2 11 7 1 6 3 1 13 1 1 12 5 1 8</p>
+    </polylist>
+   </mesh>
+  </geometry>
+  <geometry id="立方体.005" name="立方体.005">
+   <mesh>
+    <source id="立方体.005-positions">
+     <float_array id="立方体.005-positions-array" count="24">-1.0 -1.0 -1.0 -1.0 -1.0 1.0 -1.0 1.0 -1.0 -1.0 1.0 1.0 1.0 -1.0 -1.0 1.0 -1.0 1.0 1.0 1.0 -1.0 1.0 1.0 1.0</float_array>
+     <technique_common>
+      <accessor source="#立方体.005-positions-array" count="8" stride="3">
+       <param name="X" type="float"/>
+       <param name="Y" type="float"/>
+       <param name="Z" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <source id="立方体.005-normals">
+     <float_array id="立方体.005-normals-array" count="18">1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0 -1.0 0.0 -1.0 0.0 0.0 0.0 1.0 0.0</float_array>
+     <technique_common>
+      <accessor source="#立方体.005-normals-array" count="6" stride="3">
+       <param name="X" type="float"/>
+       <param name="Y" type="float"/>
+       <param name="Z" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <source id="立方体.005-texcoord">
+     <float_array id="立方体.005-texcoord-array" count="28">0.625 1.0 0.375 1.0 0.375 0.25 0.625 0.25 0.375 0.0 0.625 0.0 0.625 0.5 0.375 0.5 0.625 0.75 0.375 0.75 0.125 0.5 0.125 0.75 0.875 0.75 0.875 0.5</float_array>
+     <technique_common>
+      <accessor source="#立方体.005-texcoord-array" count="14" stride="2">
+       <param name="S" type="float"/>
+       <param name="T" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <vertices id="立方体.005-vertices">
+     <input semantic="POSITION" source="#立方体.005-positions"/>
+    </vertices>
+    <polylist count="6" material="symbol-0">
+     <input semantic="VERTEX" source="#立方体.005-vertices" offset="0"/>
+     <input semantic="NORMAL" source="#立方体.005-normals" offset="1"/>
+     <input semantic="TEXCOORD" source="#立方体.005-texcoord" offset="2" set="0"/>
+     <vcount>4 4 4 4 4 4</vcount>
+     <p>0 4 4 1 4 5 3 4 3 2 4 2 2 5 2 3 5 3 7 5 6 6 5 7 6 0 7 7 0 6 5 0 8 4 0 9 4 3 9 5 3 8 1 3 0 0 3 1 2 2 10 6 2 7 4 2 9 0 2 11 7 1 6 3 1 13 1 1 12 5 1 8</p>
+    </polylist>
+   </mesh>
+  </geometry>
+  <geometry id="立方体.007" name="立方体.007">
+   <mesh>
+    <source id="立方体.007-positions">
+     <float_array id="立方体.007-positions-array" count="24">-1.0 -1.0 -1.0 -1.0 -1.0 1.0 -1.0 1.0 -1.0 -1.0 1.0 1.0 1.0 -1.0 -1.0 1.0 -1.0 1.0 1.0 1.0 -1.0 1.0 1.0 1.0</float_array>
+     <technique_common>
+      <accessor source="#立方体.007-positions-array" count="8" stride="3">
+       <param name="X" type="float"/>
+       <param name="Y" type="float"/>
+       <param name="Z" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <source id="立方体.007-normals">
+     <float_array id="立方体.007-normals-array" count="18">1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0 -1.0 0.0 -1.0 0.0 0.0 0.0 1.0 0.0</float_array>
+     <technique_common>
+      <accessor source="#立方体.007-normals-array" count="6" stride="3">
+       <param name="X" type="float"/>
+       <param name="Y" type="float"/>
+       <param name="Z" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <source id="立方体.007-texcoord">
+     <float_array id="立方体.007-texcoord-array" count="28">0.625 1.0 0.375 1.0 0.375 0.25 0.625 0.25 0.375 0.0 0.625 0.0 0.625 0.5 0.375 0.5 0.625 0.75 0.375 0.75 0.125 0.5 0.125 0.75 0.875 0.75 0.875 0.5</float_array>
+     <technique_common>
+      <accessor source="#立方体.007-texcoord-array" count="14" stride="2">
+       <param name="S" type="float"/>
+       <param name="T" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <vertices id="立方体.007-vertices">
+     <input semantic="POSITION" source="#立方体.007-positions"/>
+    </vertices>
+    <polylist count="6" material="symbol-0">
+     <input semantic="VERTEX" source="#立方体.007-vertices" offset="0"/>
+     <input semantic="NORMAL" source="#立方体.007-normals" offset="1"/>
+     <input semantic="TEXCOORD" source="#立方体.007-texcoord" offset="2" set="0"/>
+     <vcount>4 4 4 4 4 4</vcount>
+     <p>0 4 4 1 4 5 3 4 3 2 4 2 2 5 2 3 5 3 7 5 6 6 5 7 6 0 7 7 0 6 5 0 8 4 0 9 4 3 9 5 3 8 1 3 0 0 3 1 2 2 10 6 2 7 4 2 9 0 2 11 7 1 6 3 1 13 1 1 12 5 1 8</p>
+    </polylist>
+   </mesh>
+  </geometry>
+  <geometry id="立方体" name="立方体">
+   <mesh>
+    <source id="立方体-positions">
+     <float_array id="立方体-positions-array" count="24">-1.0 -1.0 -1.0 -1.0 -1.0 1.0 -1.0 1.0 -1.0 -1.0 1.0 1.0 1.0 -1.0 -1.0 1.0 -1.0 1.0 1.0 1.0 -1.0 1.0 1.0 1.0</float_array>
+     <technique_common>
+      <accessor source="#立方体-positions-array" count="8" stride="3">
+       <param name="X" type="float"/>
+       <param name="Y" type="float"/>
+       <param name="Z" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <source id="立方体-normals">
+     <float_array id="立方体-normals-array" count="18">1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0 -1.0 0.0 -1.0 0.0 0.0 0.0 1.0 0.0</float_array>
+     <technique_common>
+      <accessor source="#立方体-normals-array" count="6" stride="3">
+       <param name="X" type="float"/>
+       <param name="Y" type="float"/>
+       <param name="Z" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <source id="立方体-texcoord">
+     <float_array id="立方体-texcoord-array" count="28">0.625 1.0 0.375 1.0 0.375 0.25 0.625 0.25 0.375 0.0 0.625 0.0 0.625 0.5 0.375 0.5 0.625 0.75 0.375 0.75 0.125 0.5 0.125 0.75 0.875 0.75 0.875 0.5</float_array>
+     <technique_common>
+      <accessor source="#立方体-texcoord-array" count="14" stride="2">
+       <param name="S" type="float"/>
+       <param name="T" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <vertices id="立方体-vertices">
+     <input semantic="POSITION" source="#立方体-positions"/>
+    </vertices>
+    <polylist count="6" material="symbol-0">
+     <input semantic="VERTEX" source="#立方体-vertices" offset="0"/>
+     <input semantic="NORMAL" source="#立方体-normals" offset="1"/>
+     <input semantic="TEXCOORD" source="#立方体-texcoord" offset="2" set="0"/>
+     <vcount>4 4 4 4 4 4</vcount>
+     <p>0 4 4 1 4 5 3 4 3 2 4 2 2 5 2 3 5 3 7 5 6 6 5 7 6 0 7 7 0 6 5 0 8 4 0 9 4 3 9 5 3 8 1 3 0 0 3 1 2 2 10 6 2 7 4 2 9 0 2 11 7 1 6 3 1 13 1 1 12 5 1 8</p>
+    </polylist>
+   </mesh>
+  </geometry>
+  <geometry id="平面.001" name="平面.001">
+   <mesh>
+    <source id="平面.001-positions">
+     <float_array id="平面.001-positions-array" count="12">-1.0 -1.0 0.0 1.0 -1.0 0.0 -1.0 1.0 0.0 1.0 1.0 0.0</float_array>
+     <technique_common>
+      <accessor source="#平面.001-positions-array" count="4" stride="3">
+       <param name="X" type="float"/>
+       <param name="Y" type="float"/>
+       <param name="Z" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <source id="平面.001-normals">
+     <float_array id="平面.001-normals-array" count="3">0.0 0.0 1.0</float_array>
+     <technique_common>
+      <accessor source="#平面.001-normals-array" count="1" stride="3">
+       <param name="X" type="float"/>
+       <param name="Y" type="float"/>
+       <param name="Z" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <source id="平面.001-texcoord">
+     <float_array id="平面.001-texcoord-array" count="8">0.0 1.0 1.0 0.0 0.0 0.0 1.0 1.0</float_array>
+     <technique_common>
+      <accessor source="#平面.001-texcoord-array" count="4" stride="2">
+       <param name="S" type="float"/>
+       <param name="T" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <vertices id="平面.001-vertices">
+     <input semantic="POSITION" source="#平面.001-positions"/>
+    </vertices>
+    <polylist count="1" material="symbol-0">
+     <input semantic="VERTEX" source="#平面.001-vertices" offset="0"/>
+     <input semantic="NORMAL" source="#平面.001-normals" offset="1"/>
+     <input semantic="TEXCOORD" source="#平面.001-texcoord" offset="2" set="0"/>
+     <vcount>4</vcount>
+     <p>0 0 2 1 0 1 3 0 3 2 0 0</p>
+    </polylist>
+   </mesh>
+  </geometry>
+  <geometry id="立方体.001" name="立方体.001">
+   <mesh>
+    <source id="立方体.001-positions">
+     <float_array id="立方体.001-positions-array" count="24">-1.0 -1.0 -1.0 -1.0 -1.0 1.0 -1.0 1.0 -1.0 -1.0 1.0 1.0 1.0 -1.0 -1.0 1.0 -1.0 1.0 1.0 1.0 -1.0 1.0 1.0 1.0</float_array>
+     <technique_common>
+      <accessor source="#立方体.001-positions-array" count="8" stride="3">
+       <param name="X" type="float"/>
+       <param name="Y" type="float"/>
+       <param name="Z" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <source id="立方体.001-normals">
+     <float_array id="立方体.001-normals-array" count="18">1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0 -1.0 0.0 -1.0 0.0 0.0 0.0 1.0 0.0</float_array>
+     <technique_common>
+      <accessor source="#立方体.001-normals-array" count="6" stride="3">
+       <param name="X" type="float"/>
+       <param name="Y" type="float"/>
+       <param name="Z" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <source id="立方体.001-texcoord">
+     <float_array id="立方体.001-texcoord-array" count="28">0.625 1.0 0.375 1.0 0.375 0.25 0.625 0.25 0.375 0.0 0.625 0.0 0.625 0.5 0.375 0.5 0.625 0.75 0.375 0.75 0.125 0.5 0.125 0.75 0.875 0.75 0.875 0.5</float_array>
+     <technique_common>
+      <accessor source="#立方体.001-texcoord-array" count="14" stride="2">
+       <param name="S" type="float"/>
+       <param name="T" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <vertices id="立方体.001-vertices">
+     <input semantic="POSITION" source="#立方体.001-positions"/>
+    </vertices>
+    <polylist count="6" material="symbol-0">
+     <input semantic="VERTEX" source="#立方体.001-vertices" offset="0"/>
+     <input semantic="NORMAL" source="#立方体.001-normals" offset="1"/>
+     <input semantic="TEXCOORD" source="#立方体.001-texcoord" offset="2" set="0"/>
+     <vcount>4 4 4 4 4 4</vcount>
+     <p>0 4 4 1 4 5 3 4 3 2 4 2 2 5 2 3 5 3 7 5 6 6 5 7 6 0 7 7 0 6 5 0 8 4 0 9 4 3 9 5 3 8 1 3 0 0 3 1 2 2 10 6 2 7 4 2 9 0 2 11 7 1 6 3 1 13 1 1 12 5 1 8</p>
+    </polylist>
+   </mesh>
+  </geometry>
+  <geometry id="平面.002" name="平面.002">
+   <mesh>
+    <source id="平面.002-positions">
+     <float_array id="平面.002-positions-array" count="12">-1.0 -1.0 0.0 1.0 -1.0 0.0 -1.0 1.0 0.0 1.0 1.0 0.0</float_array>
+     <technique_common>
+      <accessor source="#平面.002-positions-array" count="4" stride="3">
+       <param name="X" type="float"/>
+       <param name="Y" type="float"/>
+       <param name="Z" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <source id="平面.002-normals">
+     <float_array id="平面.002-normals-array" count="3">0.0 0.0 1.0</float_array>
+     <technique_common>
+      <accessor source="#平面.002-normals-array" count="1" stride="3">
+       <param name="X" type="float"/>
+       <param name="Y" type="float"/>
+       <param name="Z" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <source id="平面.002-texcoord">
+     <float_array id="平面.002-texcoord-array" count="8">0.0 1.0 1.0 0.0 0.0 0.0 1.0 1.0</float_array>
+     <technique_common>
+      <accessor source="#平面.002-texcoord-array" count="4" stride="2">
+       <param name="S" type="float"/>
+       <param name="T" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <vertices id="平面.002-vertices">
+     <input semantic="POSITION" source="#平面.002-positions"/>
+    </vertices>
+    <polylist count="1" material="symbol-0">
+     <input semantic="VERTEX" source="#平面.002-vertices" offset="0"/>
+     <input semantic="NORMAL" source="#平面.002-normals" offset="1"/>
+     <input semantic="TEXCOORD" source="#平面.002-texcoord" offset="2" set="0"/>
+     <vcount>4</vcount>
+     <p>0 0 2 1 0 1 3 0 3 2 0 0</p>
+    </polylist>
+   </mesh>
+  </geometry>
+  <geometry id="平面.003" name="平面.003">
+   <mesh>
+    <source id="平面.003-positions">
+     <float_array id="平面.003-positions-array" count="12">-1.0 -1.0 0.0 1.0 -1.0 0.0 -1.0 1.0 0.0 1.0 1.0 0.0</float_array>
+     <technique_common>
+      <accessor source="#平面.003-positions-array" count="4" stride="3">
+       <param name="X" type="float"/>
+       <param name="Y" type="float"/>
+       <param name="Z" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <source id="平面.003-normals">
+     <float_array id="平面.003-normals-array" count="3">0.0 0.0 1.0</float_array>
+     <technique_common>
+      <accessor source="#平面.003-normals-array" count="1" stride="3">
+       <param name="X" type="float"/>
+       <param name="Y" type="float"/>
+       <param name="Z" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <source id="平面.003-texcoord">
+     <float_array id="平面.003-texcoord-array" count="8">0.0 1.0 1.0 0.0 0.0 0.0 1.0 1.0</float_array>
+     <technique_common>
+      <accessor source="#平面.003-texcoord-array" count="4" stride="2">
+       <param name="S" type="float"/>
+       <param name="T" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <vertices id="平面.003-vertices">
+     <input semantic="POSITION" source="#平面.003-positions"/>
+    </vertices>
+    <polylist count="1" material="symbol-0">
+     <input semantic="VERTEX" source="#平面.003-vertices" offset="0"/>
+     <input semantic="NORMAL" source="#平面.003-normals" offset="1"/>
+     <input semantic="TEXCOORD" source="#平面.003-texcoord" offset="2" set="0"/>
+     <vcount>4</vcount>
+     <p>0 0 2 1 0 1 3 0 3 2 0 0</p>
+    </polylist>
+   </mesh>
+  </geometry>
+  <geometry id="立方体.004" name="立方体.004">
+   <mesh>
+    <source id="立方体.004-positions">
+     <float_array id="立方体.004-positions-array" count="24">-1.0 -1.0 -1.0 -1.0 -1.0 1.0 -1.0 1.0 -1.0 -1.0 1.0 1.0 1.0 -1.0 -1.0 1.0 -1.0 1.0 1.0 1.0 -1.0 1.0 1.0 1.0</float_array>
+     <technique_common>
+      <accessor source="#立方体.004-positions-array" count="8" stride="3">
+       <param name="X" type="float"/>
+       <param name="Y" type="float"/>
+       <param name="Z" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <source id="立方体.004-normals">
+     <float_array id="立方体.004-normals-array" count="18">1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0 -1.0 0.0 -1.0 0.0 0.0 0.0 1.0 0.0</float_array>
+     <technique_common>
+      <accessor source="#立方体.004-normals-array" count="6" stride="3">
+       <param name="X" type="float"/>
+       <param name="Y" type="float"/>
+       <param name="Z" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <source id="立方体.004-texcoord">
+     <float_array id="立方体.004-texcoord-array" count="28">0.625 1.0 0.375 1.0 0.375 0.25 0.625 0.25 0.375 0.0 0.625 0.0 0.625 0.5 0.375 0.5 0.625 0.75 0.375 0.75 0.125 0.5 0.125 0.75 0.875 0.75 0.875 0.5</float_array>
+     <technique_common>
+      <accessor source="#立方体.004-texcoord-array" count="14" stride="2">
+       <param name="S" type="float"/>
+       <param name="T" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <vertices id="立方体.004-vertices">
+     <input semantic="POSITION" source="#立方体.004-positions"/>
+    </vertices>
+    <polylist count="6" material="symbol-0">
+     <input semantic="VERTEX" source="#立方体.004-vertices" offset="0"/>
+     <input semantic="NORMAL" source="#立方体.004-normals" offset="1"/>
+     <input semantic="TEXCOORD" source="#立方体.004-texcoord" offset="2" set="0"/>
+     <vcount>4 4 4 4 4 4</vcount>
+     <p>0 4 4 1 4 5 3 4 3 2 4 2 2 5 2 3 5 3 7 5 6 6 5 7 6 0 7 7 0 6 5 0 8 4 0 9 4 3 9 5 3 8 1 3 0 0 3 1 2 2 10 6 2 7 4 2 9 0 2 11 7 1 6 3 1 13 1 1 12 5 1 8</p>
+    </polylist>
+   </mesh>
+  </geometry>
+  <geometry id="立方体.006" name="立方体.006">
+   <mesh>
+    <source id="立方体.006-positions">
+     <float_array id="立方体.006-positions-array" count="24">-1.0 -1.0 -1.0 -1.0 -1.0 1.0 -1.0 1.0 -1.0 -1.0 1.0 1.0 1.0 -1.0 -1.0 1.0 -1.0 1.0 1.0 1.0 -1.0 1.0 1.0 1.0</float_array>
+     <technique_common>
+      <accessor source="#立方体.006-positions-array" count="8" stride="3">
+       <param name="X" type="float"/>
+       <param name="Y" type="float"/>
+       <param name="Z" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <source id="立方体.006-normals">
+     <float_array id="立方体.006-normals-array" count="18">1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0 -1.0 0.0 -1.0 0.0 0.0 0.0 1.0 0.0</float_array>
+     <technique_common>
+      <accessor source="#立方体.006-normals-array" count="6" stride="3">
+       <param name="X" type="float"/>
+       <param name="Y" type="float"/>
+       <param name="Z" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <source id="立方体.006-texcoord">
+     <float_array id="立方体.006-texcoord-array" count="28">0.625 1.0 0.375 1.0 0.375 0.25 0.625 0.25 0.375 0.0 0.625 0.0 0.625 0.5 0.375 0.5 0.625 0.75 0.375 0.75 0.125 0.5 0.125 0.75 0.875 0.75 0.875 0.5</float_array>
+     <technique_common>
+      <accessor source="#立方体.006-texcoord-array" count="14" stride="2">
+       <param name="S" type="float"/>
+       <param name="T" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <vertices id="立方体.006-vertices">
+     <input semantic="POSITION" source="#立方体.006-positions"/>
+    </vertices>
+    <polylist count="6" material="symbol-0">
+     <input semantic="VERTEX" source="#立方体.006-vertices" offset="0"/>
+     <input semantic="NORMAL" source="#立方体.006-normals" offset="1"/>
+     <input semantic="TEXCOORD" source="#立方体.006-texcoord" offset="2" set="0"/>
+     <vcount>4 4 4 4 4 4</vcount>
+     <p>0 4 4 1 4 5 3 4 3 2 4 2 2 5 2 3 5 3 7 5 6 6 5 7 6 0 7 7 0 6 5 0 8 4 0 9 4 3 9 5 3 8 1 3 0 0 3 1 2 2 10 6 2 7 4 2 9 0 2 11 7 1 6 3 1 13 1 1 12 5 1 8</p>
+    </polylist>
+   </mesh>
+  </geometry>
+  <geometry id="立方体.008" name="立方体.008">
+   <mesh>
+    <source id="立方体.008-positions">
+     <float_array id="立方体.008-positions-array" count="24">-1.0 -1.0 -1.0 -1.0 -1.0 1.0 -1.0 1.0 -1.0 -1.0 1.0 1.0 1.0 -1.0 -1.0 1.0 -1.0 1.0 1.0 1.0 -1.0 1.0 1.0 1.0</float_array>
+     <technique_common>
+      <accessor source="#立方体.008-positions-array" count="8" stride="3">
+       <param name="X" type="float"/>
+       <param name="Y" type="float"/>
+       <param name="Z" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <source id="立方体.008-normals">
+     <float_array id="立方体.008-normals-array" count="18">1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0 -1.0 0.0 -1.0 0.0 0.0 0.0 1.0 0.0</float_array>
+     <technique_common>
+      <accessor source="#立方体.008-normals-array" count="6" stride="3">
+       <param name="X" type="float"/>
+       <param name="Y" type="float"/>
+       <param name="Z" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <source id="立方体.008-texcoord">
+     <float_array id="立方体.008-texcoord-array" count="28">0.625 1.0 0.375 1.0 0.375 0.25 0.625 0.25 0.375 0.0 0.625 0.0 0.625 0.5 0.375 0.5 0.625 0.75 0.375 0.75 0.125 0.5 0.125 0.75 0.875 0.75 0.875 0.5</float_array>
+     <technique_common>
+      <accessor source="#立方体.008-texcoord-array" count="14" stride="2">
+       <param name="S" type="float"/>
+       <param name="T" type="float"/>
+      </accessor>
+     </technique_common>
+    </source>
+    <vertices id="立方体.008-vertices">
+     <input semantic="POSITION" source="#立方体.008-positions"/>
+    </vertices>
+    <polylist count="6" material="symbol-0">
+     <input semantic="VERTEX" source="#立方体.008-vertices" offset="0"/>
+     <input semantic="NORMAL" source="#立方体.008-normals" offset="1"/>
+     <input semantic="TEXCOORD" source="#立方体.008-texcoord" offset="2" set="0"/>
+     <vcount>4 4 4 4 4 4</vcount>
+     <p>0 4 4 1 4 5 3 4 3 2 4 2 2 5 2 3 5 3 7 5 6 6 5 7 6 0 7 7 0 6 5 0 8 4 0 9 4 3 9 5 3 8 1 3 0 0 3 1 2 2 10 6 2 7 4 2 9 0 2 11 7 1 6 3 1 13 1 1 12 5 1 8</p>
+    </polylist>
+   </mesh>
+  </geometry>
+ </library_geometries>
+ <library_controllers>
+ </library_controllers>
+ <library_cameras>
+  <camera id="摄像机-camera" name="摄像机">
+   <optics>
+    <technique_common>
+     <perspective>
+      <yfov> 39.5978 </yfov>
+      <aspect_ratio> 1.7778 </aspect_ratio>
+      <znear> 0.1 </znear>
+      <zfar> 1000.0 </zfar>
+     </perspective>
+    </technique_common>
+   </optics>
+  </camera>
+  <camera id="Camera-camera" name="Camera">
+   <optics>
+    <technique_common>
+     <perspective>
+      <yfov> 39.5978 </yfov>
+      <aspect_ratio> 1.7778 </aspect_ratio>
+      <znear> 0.1 </znear>
+      <zfar> 100.0 </zfar>
+     </perspective>
+    </technique_common>
+   </optics>
+  </camera>
+ </library_cameras>
+ <library_lights>
+  <light id="Light-light" name="Light">
+   <technique_common>
+    <point>
+     <color>1.0 1.0 1.0</color>
+     <zfar>40.0</zfar>
+    </point>
+   </technique_common>
+  </light>
+ </library_lights>
+ <library_nodes>
+ </library_nodes>
+ <library_visual_scenes>
+  <visual_scene id="Scene" name="Scene">
+   <node id="蓝1台" name="蓝1台" type="NODE">
+    <matrix sid="transform">1.0 0.0 0.0 2.5 0.0 3.25 0.0 -0.75 0.0 0.0 0.1 0.3 0.0 0.0 0.0 1.0</matrix>
+    <instance_geometry url="#立方体.002">
+     <bind_material>
+      <technique_common>
+       <instance_material symbol="symbol-0" target="#材质.001-material">
+        <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+       </instance_material>
+      </technique_common>
+     </bind_material>
+    </instance_geometry>
+   </node>
+   <node id="红2台" name="红2台" type="NODE">
+    <matrix sid="transform">0.075 0.0 0.0 -1.575 0.0 0.75 0.0 0.8 0.0 0.0 0.1 0.5 0.0 0.0 0.0 1.0</matrix>
+    <instance_geometry url="#立方体.003">
+     <bind_material>
+      <technique_common>
+       <instance_material symbol="symbol-0" target="#材质.003-material">
+        <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+       </instance_material>
+      </technique_common>
+     </bind_material>
+    </instance_geometry>
+   </node>
+   <node id="Light" name="Light" type="NODE">
+    <matrix sid="transform">-0.2909 -0.7711 0.5664 4.0762 0.9552 -0.1999 0.2184 1.0055 -0.0552 0.6045 0.7947 5.9039 0.0 0.0 0.0 1.0</matrix>
+    <instance_light url="#Light-light"/>
+   </node>
+   <node id="Camera" name="Camera" type="NODE">
+    <matrix sid="transform">0.6859 -0.6516 -0.324 10.9172 0.7277 0.6142 0.3054 -10.0645 -0.0 -0.4453 0.8954 6.7281 0.0 0.0 0.0 1.0</matrix>
+    <instance_camera url="#Camera-camera"/>
+   </node>
+   <node id="摄像机" name="摄像机" type="NODE">
+    <matrix sid="transform">0.9996 0.0057 0.0273 0.0 -0.0279 0.2033 0.9787 0.0 0.0 -0.9791 0.2034 4.5981 0.0 0.0 0.0 1.0</matrix>
+    <instance_camera url="#摄像机-camera"/>
+   </node>
+   <node id="立方体-1" name="立方体" type="NODE">
+    <matrix sid="transform">0.01 0.0 0.0 6.01 0.0 4.0 0.0 0.0 0.0 0.0 0.35 0.35 0.0 0.0 0.0 1.0</matrix>
+    <instance_geometry url="#立方体.005">
+     <bind_material>
+      <technique_common>
+       <instance_material symbol="symbol-0" target="#材质.010-material">
+        <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+       </instance_material>
+      </technique_common>
+     </bind_material>
+    </instance_geometry>
+   </node>
+   <node id="立方体.002-1" name="立方体.002" type="NODE">
+    <matrix sid="transform">6.0 0.0 0.0 0.0 0.0 0.01 0.0 4.01 0.0 0.0 0.35 0.35 0.0 0.0 0.0 1.0</matrix>
+    <instance_geometry url="#立方体.007">
+     <bind_material>
+      <technique_common>
+       <instance_material symbol="symbol-0" target="#材质.011-material">
+        <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+       </instance_material>
+      </technique_common>
+     </bind_material>
+    </instance_geometry>
+   </node>
+   <node id="地面" name="地面" type="NODE">
+    <matrix sid="transform">6.0 0.0 0.0 0.0 0.0 4.0 0.0 0.0 0.0 0.0 0.1 0.1 0.0 0.0 0.0 1.0</matrix>
+    <instance_geometry url="#立方体">
+     <bind_material>
+      <technique_common>
+       <instance_material symbol="symbol-0" target="#材质-material">
+        <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+       </instance_material>
+      </technique_common>
+     </bind_material>
+    </instance_geometry>
+   </node>
+   <node id="红补给" name="红补给" type="NODE">
+    <matrix sid="transform">0.75 0.0 0.0 -5.25 0.0 1.0 0.0 3.0 0.0 0.0 1.0 0.2 0.0 0.0 0.0 1.0</matrix>
+    <instance_geometry url="#平面.001">
+     <bind_material>
+      <technique_common>
+       <instance_material symbol="symbol-0" target="#材质.005-material">
+        <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+       </instance_material>
+      </technique_common>
+     </bind_material>
+    </instance_geometry>
+   </node>
+   <node id="红1台" name="红1台" type="NODE">
+    <matrix sid="transform">1.0 0.0 0.0 -2.5 0.0 3.25 0.0 0.75 0.0 0.0 0.1 0.3 0.0 0.0 0.0 1.0</matrix>
+    <instance_geometry url="#立方体.001">
+     <bind_material>
+      <technique_common>
+       <instance_material symbol="symbol-0" target="#材质.002-material">
+        <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+       </instance_material>
+      </technique_common>
+     </bind_material>
+    </instance_geometry>
+   </node>
+   <node id="控制区" name="控制区" type="NODE">
+    <matrix sid="transform">1.5 0.0 0.0 0.0 0.0 1.5 0.0 0.0 0.0 0.0 1.0 0.2 0.0 0.0 0.0 1.0</matrix>
+    <instance_geometry url="#平面.002">
+     <bind_material>
+      <technique_common>
+       <instance_material symbol="symbol-0" target="#材质.007-material">
+        <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+       </instance_material>
+      </technique_common>
+     </bind_material>
+    </instance_geometry>
+   </node>
+   <node id="蓝补给" name="蓝补给" type="NODE">
+    <matrix sid="transform">0.75 0.0 0.0 5.25 0.0 1.0 0.0 -3.0 0.0 0.0 1.0 0.2 0.0 0.0 0.0 1.0</matrix>
+    <instance_geometry url="#平面.003">
+     <bind_material>
+      <technique_common>
+       <instance_material symbol="symbol-0" target="#材质.006-material">
+        <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+       </instance_material>
+      </technique_common>
+     </bind_material>
+    </instance_geometry>
+   </node>
+   <node id="蓝2台" name="蓝2台" type="NODE">
+    <matrix sid="transform">0.075 0.0 0.0 1.575 0.0 0.75 0.0 -0.8 0.0 0.0 0.1 0.5 0.0 0.0 0.0 1.0</matrix>
+    <instance_geometry url="#立方体.004">
+     <bind_material>
+      <technique_common>
+       <instance_material symbol="symbol-0" target="#材质.004-material">
+        <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+       </instance_material>
+      </technique_common>
+     </bind_material>
+    </instance_geometry>
+   </node>
+   <node id="立方体.001-1" name="立方体.001" type="NODE">
+    <matrix sid="transform">0.01 0.0 0.0 -6.01 0.0 4.0 0.0 0.0 0.0 0.0 0.35 0.35 0.0 0.0 0.0 1.0</matrix>
+    <instance_geometry url="#立方体.006">
+     <bind_material>
+      <technique_common>
+       <instance_material symbol="symbol-0" target="#材质.008-material">
+        <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+       </instance_material>
+      </technique_common>
+     </bind_material>
+    </instance_geometry>
+   </node>
+   <node id="立方体.003-1" name="立方体.003" type="NODE">
+    <matrix sid="transform">6.0 0.0 0.0 0.0 0.0 0.01 0.0 -4.01 0.0 0.0 0.35 0.35 0.0 0.0 0.0 1.0</matrix>
+    <instance_geometry url="#立方体.008">
+     <bind_material>
+      <technique_common>
+       <instance_material symbol="symbol-0" target="#材质.009-material">
+        <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+       </instance_material>
+      </technique_common>
+     </bind_material>
+    </instance_geometry>
+   </node>
+  </visual_scene>
+ </library_visual_scenes>
+ <library_animations>
+ </library_animations>
+ <library_animation_clips>
+  <animation_clip id="Scene-timeline" start="0.0" end="10.375">
+  </animation_clip>
+ </library_animation_clips>
+<scene>
+ <instance_visual_scene url="#Scene"/>
+</scene>
+</COLLADA>

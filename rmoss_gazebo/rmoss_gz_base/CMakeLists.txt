@@ -22,15 +22,12 @@ find_package(rmoss_interfaces REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(ros_gz_bridge REQUIRED)
 
-# ignition package
-# Fortress
-find_package(ignition-transport11 REQUIRED)
-set(IGN_TRANSPORT_VER ${ignition-transport11_VERSION_MAJOR})
+# gazebo package
+# Harmonic
+find_package(gz-transport13 REQUIRED)
+find_package(gz-msgs10 REQUIRED)
 
-find_package(ignition-msgs8 REQUIRED)
-set(IGN_MSGS_VER ${ignition-msgs8_VERSION_MAJOR})
-
-message(STATUS "Compiling against Ignition Fortress")
+message(STATUS "Compiling against Gazebo Harmonic")
 
 
 # include
@@ -68,8 +65,8 @@ set(dependencies
 ament_target_dependencies(${PROJECT_NAME} ${dependencies})
 
 target_link_libraries(${PROJECT_NAME}
-    ignition-msgs${IGN_MSGS_VER}::core
-    ignition-transport${IGN_TRANSPORT_VER}::core
+    gz-msgs10::core
+    gz-transport13::core
 )
 
 # nodes
@@ -116,6 +113,6 @@ endif()
 
 ament_export_targets(${PROJECT_NAME} HAS_LIBRARY_TARGET)
 ament_export_dependencies(${dependencies})
-ament_export_dependencies(ignition-msgs${IGN_MSGS_VER})
-ament_export_dependencies(ignition-transport${IGN_TRANSPORT_VER})
+ament_export_dependencies(gz-msgs10)
+ament_export_dependencies(gz-transport13)
 ament_package()

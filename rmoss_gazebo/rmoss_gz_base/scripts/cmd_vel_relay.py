@@ -12,7 +12,7 @@ class CmdVelRelay(Node):
         # Declare parameters
         self.declare_parameter('input_topic', 'cmd_vel')
         self.declare_parameter('output_topic', '/robot/robot_base/chassis_cmd')
-        self.declare_parameter('chassis_type', 1)  # 1: velocity mode, 2: follow gimbal mode
+        self.declare_parameter('chassis_type', 2)  # 1: velocity mode, 2: follow gimbal mode
 
 
         input_topic = self.get_parameter('input_topic').value
@@ -38,8 +38,8 @@ class CmdVelRelay(Node):
     def cmd_vel_callback(self, msg):
         chassis_cmd = ChassisCmd()
         chassis_cmd.type = self.chassis_type
-        chassis_cmd.twist.linear.x = msg.linear.x
-        chassis_cmd.twist.linear.y = msg.linear.y
+        chassis_cmd.twist.linear.x = 5*msg.linear.x
+        chassis_cmd.twist.linear.y = 5*msg.linear.y
         chassis_cmd.twist.linear.z = msg.linear.z
         chassis_cmd.twist.angular.x = msg.angular.x
         chassis_cmd.twist.angular.y = msg.angular.y

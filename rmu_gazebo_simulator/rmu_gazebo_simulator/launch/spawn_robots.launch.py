@@ -123,14 +123,14 @@ def generate_launch_description():
 
         set_performer_service = ExecuteProcess(
             cmd=[
-                "ign",
+                "gz",
                 "service",
                 "-s",
                 "/world/default/level/set_performer",
                 "--reqtype",
-                "ignition.msgs.StringMsg",
+                "gz.msgs.StringMsg",
                 "--reptype",
-                "ignition.msgs.Boolean",
+                "gz.msgs.Boolean",
                 "--timeout",
                 "2000",
                 "--req",

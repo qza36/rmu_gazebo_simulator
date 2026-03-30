@@ -64,7 +64,7 @@ robots:
   rmul_2026:
     - name: "robot"
       color: "red"
-      x_pose: "-3.6256"
-      y_pose: "2.424"
-      z_pose: "0.1364"
+      x_pose: "-4.5"
+      y_pose: "2.5"
+      z_pose: "0.1"
       yaw: "0.0"
