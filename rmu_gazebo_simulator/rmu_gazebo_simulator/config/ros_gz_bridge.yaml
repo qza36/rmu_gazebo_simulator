@@ -24,13 +24,13 @@
   gz_type_name: "gz.msgs.LaserScan"
   direction: "GZ_TO_ROS"
 
-- ros_topic_name: "/<robot_name>/livox/lidar"
+- ros_topic_name: "/<robot_name>/livox/lidar_raw"
   gz_topic_name: "/world/default/model/<robot_name>/link/front_mid360/sensor/front_mid360_lidar/scan/points"
   ros_type_name: "sensor_msgs/msg/PointCloud2"
   gz_type_name: "gz.msgs.PointCloudPacked"
   direction: "GZ_TO_ROS"
 
-- ros_topic_name: "/<robot_name>/livox/imu"
+- ros_topic_name: "/<robot_name>/livox/imu_raw"
   gz_topic_name: "/world/default/model/<robot_name>/link/front_mid360/sensor/front_mid360_imu/imu"
   ros_type_name: "sensor_msgs/msg/Imu"
   gz_type_name: "gz.msgs.IMU"

@@ -113,6 +113,21 @@ def generate_launch_description():
             parameters=[{"config_file": aft_replace_ros_bridge_params}],
         )
 
+        mid360_frame_normalizer = Node(
+            package="rmu_gazebo_simulator",
+            executable="normalize_mid360_frames.py",
+            namespace=robot["name"],
+            parameters=[
+                {
+                    "frame_id": "front_mid360",
+                    "pointcloud_input_topic": "livox/lidar_raw",
+                    "pointcloud_output_topic": "livox/lidar",
+                    "imu_input_topic": "livox/imu_raw",
+                    "imu_output_topic": "livox/imu",
+                }
+            ],
+        )
+
         odom_to_tf = Node(
             package="rmu_gazebo_simulator",
             executable="odom_to_tf.py",
@@ -143,6 +158,7 @@ def generate_launch_description():
         ld.add_action(robot_base)
         ld.add_action(robot_state_publisher)
         ld.add_action(robot_ign_bridge)
+        ld.add_action(mid360_frame_normalizer)
         ld.add_action(odom_to_tf)
         ld.add_action(set_performer_service)
 

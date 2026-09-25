@@ -152,5 +152,6 @@ python3 src/rmu_gazebo_simulator/rmu_gazebo_simulator/scripts/referee_web/main.p
 ## 维护者及开源许可证
 
 Maintainer: Lihan Chen, <lihanchen2004@163.com>
+Maintainer: Zhiang Qi, <qza36@outlook.com>
 
 rmu_gazebo_simulator is provided under Apache License 2.0.
