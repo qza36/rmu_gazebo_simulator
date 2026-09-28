@@ -1,4 +1,4 @@
-world: "rmul_2026"
+world: "rmuc_2026"
 
 robots:
 
@@ -55,12 +55,31 @@ robots:
       z_pose: "0.28"
       yaw: "0.0"
 
-    - name: "blue_standard_robot1"
-      color: "blue"
-      x_pose: "25.6"
-      y_pose: "6.45"
-      z_pose: "0.28"
-      yaw: "3.14"
+    # 单机测试：暂不 spawn 蓝车（原配置保留在注释里，恢复时取消注释即可）。
+    # 原因：odom_to_tf.py 会把 frame 前缀去掉，两台车同时发 odom->chassis 会冲突。
+    # - name: "blue_standard_robot1"
+    #   color: "blue"
+    #   x_pose: "25.6"
+    #   y_pose: "6.45"
+    #   z_pose: "0.28"
+    #   yaw: "3.14"
+
+  # RMUC 2026：红方出生点在基地旁的启动区（地面高度约 0.62 m）。
+  rmuc_2026:
+    - name: "red_standard_robot1"
+      color: "red"
+      x_pose: "4.5"
+      y_pose: "7.8"
+      z_pose: "0.372"
+      yaw: "0.0"
+
+    # 单机测试：暂不 spawn 蓝车（恢复时取消注释即可）。
+    # - name: "blue_standard_robot1"
+    #   color: "blue"
+    #   x_pose: "24.5"
+    #   y_pose: "4.2"
+    #   z_pose: "0.7"
+    #   yaw: "3.14"
   rmul_2026:
     - name: "robot"
       color: "red"
