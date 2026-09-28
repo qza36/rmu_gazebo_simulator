@@ -11,7 +11,7 @@ class CmdVelRelay(Node):
 
         # Declare parameters
         self.declare_parameter('input_topic', 'cmd_vel')
-        self.declare_parameter('output_topic', '/robot/robot_base/chassis_cmd')
+        self.declare_parameter('output_topic', '/robot_base/chassis_cmd')
         self.declare_parameter('chassis_type', 2)  # 1: velocity mode, 2: follow gimbal mode
 
 

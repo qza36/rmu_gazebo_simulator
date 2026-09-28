@@ -17,14 +17,15 @@ import os
 import yaml
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import ExecuteProcess
+from launch.actions import DeclareLaunchArgument, ExecuteProcess, OpaqueFunction
+from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 from nav2_common.launch import ReplaceString
 from sdformat_tools.urdf_generator import UrdfGenerator
 from xmacro.xmacro4sdf import XMLMacro4sdf
 
 
-def generate_launch_description():
+def launch_setup(context, *args, **kwargs):
     remappings = [("/tf", "tf"), ("/tf_static", "tf_static")]
 
     pkg_simulator = get_package_share_directory("rmu_gazebo_simulator")
@@ -32,12 +33,7 @@ def generate_launch_description():
         "pb2025_robot_description"
     )
 
-    robot_xmacro_path = os.path.join(
-        pkg_pb2025_robot_description,
-        "resource",
-        "xmacro",
-        "simulation_robot.sdf.xmacro",
-    )
+    robot_xmacro_path = LaunchConfiguration("robot_xmacro").perform(context)
     bridge_config = os.path.join(pkg_simulator, "config", "ros_gz_bridge.yaml")
     robot_config = os.path.join(pkg_simulator, "config", "base_params.yaml")
 
@@ -50,11 +46,12 @@ def generate_launch_description():
     xmacro = XMLMacro4sdf()
     xmacro.set_xml_file(robot_xmacro_path)
 
-    ld = LaunchDescription()
+    ld = []
 
     for robot in robots:
         xmacro.generate({"global_initial_color": robot["color"]})
-        robot_xml = xmacro.to_string()
+        # 模型里的 @ROBOT_NAME@（速度控制插件的 gz 话题名）替换成实际机器人名
+        robot_xml = xmacro.to_string().replace("@ROBOT_NAME@", robot["name"])
 
         urdf_generator = UrdfGenerator()
         urdf_generator.parse_from_sdf_string(robot_xml)
@@ -86,18 +83,22 @@ def generate_launch_description():
             ],
         )
 
+        # 说明：以下节点都不加命名空间（单机器人调试用），
+        # 话题是 /cmd_vel、/chassis_odometry_gt、/livox/...、/rplidar_a2/... 这样不带机器人名前缀的形式。
+        # 机器人名只保留在参数里，用于拼接 gazebo 侧的话题。
         robot_base = Node(
             package="rmoss_gz_base",
             executable="rmua19_robot_base",
-            namespace=robot["name"],
             parameters=[robot_config, {"robot_name": robot["name"]}],
         )
 
+        # 注意：robot_state_publisher 不加 namespace，
+        # 这样 URDF 里的坐标系（chassis / front_mid360 / ...）就是全局的，
+        # 与 odom_to_tf、传感器话题改写后的 frame_id 一致，rviz2 里才能连成 TF 树。
         robot_state_publisher = Node(
             package="robot_state_publisher",
             executable="robot_state_publisher",
-            namespace=robot["name"],
-            remappings=[],
+            remappings=[("joint_states", f"/{robot['name']}/joint_states")],
             parameters=[
                 {
                     "use_sim_time": True,
@@ -109,21 +110,22 @@ def generate_launch_description():
         robot_ign_bridge = Node(
             package="ros_gz_bridge",
             executable="parameter_bridge",
-            namespace=robot["name"],
             parameters=[{"config_file": aft_replace_ros_bridge_params}],
         )
 
         mid360_frame_normalizer = Node(
             package="rmu_gazebo_simulator",
             executable="normalize_mid360_frames.py",
-            namespace=robot["name"],
             parameters=[
                 {
-                    "frame_id": "front_mid360",
+                    "frame_id": "mid360",
                     "pointcloud_input_topic": "livox/lidar_raw",
                     "pointcloud_output_topic": "livox/lidar",
                     "imu_input_topic": "livox/imu_raw",
                     "imu_output_topic": "livox/imu",
+                    "scan_input_topic": "rplidar_a2/scan_raw",
+                    "scan_output_topic": "rplidar_a2/scan",
+                    "scan_frame_id": "rplidar_a2",
                 }
             ],
         )
@@ -131,8 +133,9 @@ def generate_launch_description():
         odom_to_tf = Node(
             package="rmu_gazebo_simulator",
             executable="odom_to_tf.py",
-            namespace=robot["name"],
-            parameters=[{"use_sim_time": True}],
+            parameters=[
+                {"use_sim_time": True, "child_frame_id": "baselink"}
+            ],
             remappings=[],
         )
 
@@ -154,12 +157,40 @@ def generate_launch_description():
             output="screen",
         )
 
-        ld.add_action(spawn_robot)
-        ld.add_action(robot_base)
-        ld.add_action(robot_state_publisher)
-        ld.add_action(robot_ign_bridge)
-        ld.add_action(mid360_frame_normalizer)
-        ld.add_action(odom_to_tf)
-        ld.add_action(set_performer_service)
+        ld.append(spawn_robot)
+        ld.append(robot_base)
+        ld.append(robot_state_publisher)
+        ld.append(robot_ign_bridge)
+        ld.append(mid360_frame_normalizer)
+        ld.append(odom_to_tf)
+        ld.append(set_performer_service)
+
+    return ld
+
+
+def generate_launch_description():
+    pkg_pb2025_robot_description = get_package_share_directory(
+        "pb2025_robot_description"
+    )
+
+    declare_robot_xmacro_cmd = DeclareLaunchArgument(
+        "robot_xmacro",
+        default_value=os.path.join(
+            pkg_pb2025_robot_description,
+            "resource",
+            "xmacro",
+            "simple_chassis_robot.sdf.xmacro",
+        ),
+        description=(
+            "Path to the robot SDF xmacro file. Default: simple_chassis_robot "
+            "(580x580mm square chassis, mid360 at 210mm). Use "
+            "simulation_robot.sdf.xmacro for the full RM robot."
+        ),
+    )
+
+    ld = LaunchDescription()
+
+    ld.add_action(declare_robot_xmacro_cmd)
+    ld.add_action(OpaqueFunction(function=launch_setup))
 
     return ld

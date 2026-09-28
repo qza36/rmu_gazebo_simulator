@@ -16,29 +16,37 @@ import os
 
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument
+from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 
 
 def generate_launch_description():
+    rviz_config_file = LaunchConfiguration("rviz_config_file")
+
+    declare_rviz_config_file = DeclareLaunchArgument(
+        "rviz_config_file",
+        default_value=os.path.join(
+            get_package_share_directory("rmu_gazebo_simulator"),
+            "rviz",
+            "visualize.rviz",
+        ),
+        description="Path to the RViz2 configuration file",
+    )
+
+    # 不加命名空间：话题/坐标系都是全局的（/livox/lidar、/rplidar_a2/scan、odom、baselink ...）
     start_rviz2 = Node(
         package="rviz2",
         executable="rviz2",
         name="rviz2",
-        namespace="red_standard_robot1",
-        arguments=[
-            "-d",
-            os.path.join(
-                get_package_share_directory("rmu_gazebo_simulator"),
-                "rviz",
-                "visualize.rviz",
-            ),
-        ],
-        remappings=[("/tf", "tf"), ("/tf_static", "tf_static")],
+        arguments=["-d", rviz_config_file],
+        parameters=[{"use_sim_time": True}],
+        output="screen",
     )
 
     ld = LaunchDescription()
 
-    # Declare the launch options
+    ld.add_action(declare_rviz_config_file)
     ld.add_action(start_rviz2)
 
     return ld

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/pb2025_robot_description" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/rmoss_core" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/rmoss_gazebo" vcs="Git" />

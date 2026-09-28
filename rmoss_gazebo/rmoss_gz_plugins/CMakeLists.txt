@@ -22,6 +22,13 @@ target_link_libraries(MecanumDrive2
   gz-sim8::gz-sim8
 )
 
+# for plugins PointMassControl（质点式平面速度控制：水平直接控速，垂直交给物理）
+add_library(PointMassControl SHARED plugins/point_mass_control/PointMassControl.cc)
+
+target_link_libraries(PointMassControl
+  gz-sim8::gz-sim8
+)
+
 # for plugins ProjectileShooter
 add_library(ProjectileShooter SHARED plugins/projectile_shooter/ProjectileShooter.cc)
 
@@ -37,7 +44,7 @@ target_link_libraries(LightBarController
 
 
 # Install plugins
-install(TARGETS MecanumDrive2 ProjectileShooter LightBarController
+install(TARGETS MecanumDrive2 PointMassControl ProjectileShooter LightBarController
     DESTINATION plugins
 )
 

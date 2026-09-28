@@ -1,48 +1,55 @@
+# Gazebo <-> ROS 话题桥接
+# 说明：ROS 侧话题不带机器人名前缀（单机器人调试用），
+#       gazebo 侧仍然用 <robot_name>（= gz_world.yaml 里该机器人的 name）。
+# 传感器话题的 frame_id 由 normalize_mid360_frames.py 统一改写。
+
 # mecanum plugin odometry
-- ros_topic_name: "/<robot_name>/chassis_odometry_gt"
+- ros_topic_name: "/chassis_odometry_gt"
   gz_topic_name: "/<robot_name>/odometry"
   ros_type_name: "nav_msgs/msg/Odometry"
   gz_type_name: "gz.msgs.Odometry"
   direction: "GZ_TO_ROS"
 
 # JointStatePublisher publish
-- ros_topic_name: "/<robot_name>/joint_states"
+- ros_topic_name: "/joint_states"
   gz_topic_name: "/world/default/model/<robot_name>/joint_state"
   ros_type_name: "sensor_msgs/msg/JointState"
   gz_type_name: "gz.msgs.Model"
   direction: "GZ_TO_ROS"
 
-- ros_topic_name: "/<robot_name>/front_industrial_camera/image"
+- ros_topic_name: "/front_industrial_camera/image"
   gz_topic_name: "/world/default/model/<robot_name>/link/front_industrial_camera/sensor/front_industrial_camera/image"
   ros_type_name: "sensor_msgs/msg/Image"
   gz_type_name: "gz.msgs.Image"
   direction: "GZ_TO_ROS"
 
-- ros_topic_name: "/<robot_name>/rplidar_a2/scan"
-  gz_topic_name: "/world/default/model/<robot_name>/link/front_rplidar_a2/sensor/front_rplidar_a2/scan"
+# 原始 2D 雷达（frame_id 带 gazebo 的 model/link/sensor 前缀，会被 normalize 节点改写成 front_rplidar_a2）
+- ros_topic_name: "/rplidar_a2/scan_raw"
+  gz_topic_name: "/world/default/model/<robot_name>/link/rplidar_a2/sensor/rplidar_a2/scan"
   ros_type_name: "sensor_msgs/msg/LaserScan"
   gz_type_name: "gz.msgs.LaserScan"
   direction: "GZ_TO_ROS"
 
-- ros_topic_name: "/<robot_name>/livox/lidar_raw"
-  gz_topic_name: "/world/default/model/<robot_name>/link/front_mid360/sensor/front_mid360_lidar/scan/points"
+# 原始 mid360 点云 / IMU（frame_id 由 normalize 节点改写成 front_mid360）
+- ros_topic_name: "/livox/lidar_raw"
+  gz_topic_name: "/world/default/model/<robot_name>/link/mid360/sensor/mid360_lidar/scan/points"
   ros_type_name: "sensor_msgs/msg/PointCloud2"
   gz_type_name: "gz.msgs.PointCloudPacked"
   direction: "GZ_TO_ROS"
 
-- ros_topic_name: "/<robot_name>/livox/imu_raw"
-  gz_topic_name: "/world/default/model/<robot_name>/link/front_mid360/sensor/front_mid360_imu/imu"
+- ros_topic_name: "/livox/imu_raw"
+  gz_topic_name: "/world/default/model/<robot_name>/link/mid360/sensor/mid360_imu/imu"
   ros_type_name: "sensor_msgs/msg/Imu"
   gz_type_name: "gz.msgs.IMU"
   direction: "GZ_TO_ROS"
 
-- ros_topic_name: "/<robot_name>/front_industrial_camera/camera_info"
+- ros_topic_name: "/front_industrial_camera/camera_info"
   gz_topic_name: "/world/default/model/<robot_name>/link/front_industrial_camera/sensor/front_industrial_camera/camera_info"
   ros_type_name: "sensor_msgs/msg/CameraInfo"
   gz_type_name: "gz.msgs.CameraInfo"
   direction: "GZ_TO_ROS"
-  
-- topic_name: "/tf"
-  ros_type_name: "tf2_msgs/msg/TFMessage"
-  gz_type_name: "gz.msgs.Pose_V"
-  direction: GZ_TO_ROS  # 从 Gazebo 发给 ROS
+
+# 说明：不再把 gazebo 的 pose/info 桥接成 /tf。
+# 它发布的是各 link 相对 model 的位姿且带 model 名前缀（例如 red_standard_robot1/chassis），
+# 数据本身不对，还会和 robot_state_publisher 的 TF 树冲突。
+# 机器人 TF 由 URDF（robot_state_publisher）+ odom_to_tf 提供。

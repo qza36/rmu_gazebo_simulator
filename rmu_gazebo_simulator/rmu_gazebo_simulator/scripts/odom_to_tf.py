@@ -5,9 +5,15 @@ from nav_msgs.msg import Odometry
 from tf2_ros import TransformBroadcaster
 from geometry_msgs.msg import TransformStamped
 
+
 class OdomToTF(Node):
     def __init__(self):
         super().__init__('odom_to_tf')
+        # 发布成 URDF 的根坐标系，避免和 robot_state_publisher 的树冲突
+        self.declare_parameter('child_frame_id', 'baselink')
+        self.child_frame_id = (
+            self.get_parameter('child_frame_id').get_parameter_value().string_value
+        )
         self.br = TransformBroadcaster(self)
         self.sub = self.create_subscription(Odometry, 'chassis_odometry_gt', self.cb, 10)
 
@@ -21,6 +27,8 @@ class OdomToTF(Node):
             frame_id = frame_id.split('/')[-1]
         if '/' in child_frame_id:
             child_frame_id = child_frame_id.split('/')[-1]
+        if self.child_frame_id:
+            child_frame_id = self.child_frame_id
         t.header.frame_id = frame_id
         t.child_frame_id = child_frame_id
         t.transform.translation.x = msg.pose.pose.position.x
@@ -29,9 +37,11 @@ class OdomToTF(Node):
         t.transform.rotation = msg.pose.pose.orientation
         self.br.sendTransform(t)
 
+
 def main():
     rclpy.init()
     rclpy.spin(OdomToTF())
+
 
 if __name__ == '__main__':
     main()

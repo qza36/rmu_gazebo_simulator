@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<sdf version="1.7">
+
+    <!--include defination-->
+    <xmacro_include uri="model://rplidar_a2/model.sdf.xmacro" />
+    <xmacro_include uri="model://mid360/model.sdf.xmacro" />
+    <xmacro_include uri="model://rmua19_standard_robot/chassis_wheel.def.xmacro" />
+
+    <!--property defination-->
+    <xmacro_define_value name="global_initial_color" value="none" />
+    <!-- 正方形底盘边长 580mm -->
+    <xmacro_define_value name="chassis_size" value="0.58" />
+    <!-- 轮半径 == 轮中心离地高度 -->
+    <xmacro_define_value name="wheel_radius" value="0.0758" />
+    <!-- 四轮位置：±wheel_x, ±wheel_y -->
+    <xmacro_define_value name="wheel_x" value="0.24" />
+    <xmacro_define_value name="wheel_y" value="0.24" />
+    <!-- 车体（正方形板）厚度 -->
+    <xmacro_define_value name="body_height" value="0.07" />
+    <!-- 车体质量 -->
+    <xmacro_define_value name="body_mass" value="15.0" />
+    <!-- mid360 扫描中心离地高度 = 210mm -->
+    <xmacro_define_value name="lidar_height" value="0.21" />
+
+    <!--simple square chassis robot (580mm x 580mm, mid360 scan at 210mm above ground)
+        坐标系(TF)：odom -> baselink -> mid360 / rplidar_a2
+        baselink == 地面（轮子触地平面），baselink 上方 wheel_radius 处是轮中心 -->
+    <model name="simple_chassis_robot">
+
+        <pose>0 0 0.15 0 0 0</pose>
+        <self_collide>false</self_collide>
+
+        <!--baselink: 正方形车体，同时作为整个机器人的基准坐标系（车体底面离地 wheel_radius，
+            四个轮子露在车体下方，触地的是轮子）-->
+        <link name="baselink">
+            <inertial>
+                <pose>0 0 ${wheel_radius + body_height/2} 0 0 0</pose>
+                <xmacro_block name="inertia_box" m="${body_mass}" x="${chassis_size}" y="${chassis_size}" z="${body_height}"/>
+            </inertial>
+            <visual name="body_visual">
+                <pose>0 0 ${wheel_radius + body_height/2} 0 0 0</pose>
+                <xmacro_block name="geometry_box" x="${chassis_size}" y="${chassis_size}" z="${body_height}"/>
+            </visual>
+            <collision name="body_collision">
+                <pose>0 0 ${wheel_radius + body_height/2} 0 0 0</pose>
+                <xmacro_block name="geometry_box" x="${chassis_size}" y="${chassis_size}" z="${body_height}"/>
+            </collision>
+            <sensor name="baselink_imu" type="imu">
+                <always_on>1</always_on>
+                <update_rate>200</update_rate>
+            </sensor>
+        </link>
+
+        <!-- ================= 副对角线：动力舵轮 =================
+             转向关节(front_right_steer_joint / rear_left_steer_joint) + 轮关节。
+             说明：当前底盘驱动由 MecanumDrive2 插件直接对 baselink 施加力/力矩
+             （见下方 plugin），并不驱动轮关节，因此转向关节设为 fixed 保持 0°，
+             避免自由转向关节带来的乱摆。若需要真实舵轮运动学（转向+驱动），
+             把 joint type 改为 revolute（axis 0 0 1）并增加转向控制器即可。 -->
+        <joint name="front_right_steer_joint" type="fixed">
+            <pose relative_to="baselink">${wheel_x} ${-wheel_y} ${wheel_radius} 0 0 0</pose>
+            <parent>baselink</parent>
+            <child>front_right_steer</child>
+        </joint>
+        <link name="front_right_steer">
+            <pose relative_to="front_right_steer_joint">0 0 0 0 0 0</pose>
+            <inertial>
+                <xmacro_block name="inertia_cylinder" m="0.2" r="0.03" l="0.06"/>
+            </inertial>
+        </link>
+        <xmacro_block name="chassis_wheel_r" prefix="front_right" parent="front_right_steer" pose="0 0 0 0 0 0"/>
+
+        <joint name="rear_left_steer_joint" type="fixed">
+            <pose relative_to="baselink">${-wheel_x} ${wheel_y} ${wheel_radius} 0 0 0</pose>
+            <parent>baselink</parent>
+            <child>rear_left_steer</child>
+        </joint>
+        <link name="rear_left_steer">
+            <pose relative_to="rear_left_steer_joint">0 0 0 0 0 0</pose>
+            <inertial>
+                <xmacro_block name="inertia_cylinder" m="0.2" r="0.03" l="0.06"/>
+            </inertial>
+        </link>
+        <xmacro_block name="chassis_wheel_l" prefix="rear_left" parent="rear_left_steer" pose="0 0 0 0 0 0"/>
+
+        <!-- ================= 主对角线：无动力全向轮 ================= -->
+        <xmacro_block name="chassis_wheel_l" prefix="front_left" parent="baselink" pose="${wheel_x} ${wheel_y} ${wheel_radius} 0 0 0"/>
+        <xmacro_block name="chassis_wheel_r" prefix="rear_right" parent="baselink" pose="${-wheel_x} ${-wheel_y} ${wheel_radius} 0 0 0"/>
+
+        <!--mid360 (3D 雷达)：扫描中心离地 210mm，rpy 与 simulation_robot 一致-->
+        <xmacro_block name="livox" prefix="" parent="baselink"
+                      pose="0 0 ${lidar_height - 0.03} ${pi/4} 0.0 0.0"
+                      update_rate="20" samples="1875"/>
+
+        <!--rplidar a2 (2D 雷达)：nav2 / cartographer 使用，坐在车体顶面-->
+        <xmacro_block name="rplidar_a2" prefix="" parent="baselink" pose="0.155 0 ${wheel_radius + body_height} 0 0 0" update_rate="10" samples="400" visualize="true"/>
+
+        <!--plugins-->
+        <!--plugin for joint state sensor-->
+        <plugin filename="ignition-gazebo-joint-state-publisher-system" name="ignition::gazebo::systems::JointStatePublisher">
+        </plugin>
+
+        <!-- ===== 质点式速度控制（PointMassControl 插件）=====
+             忽略摩擦/轮胎/悬挂等运动模型：水平（body 系 x/y）与偏航角速度直接赋值，
+             垂直方向不干预速度，交给物理（重力 + 碰撞），所以能正常爬坡、下坡、落地。
+             模型自体碰撞保持有效。
+             <topic> 里的 @ROBOT_NAME@ 由 launch 在生成 SDF 时替换为 gz_world.yaml 中的机器人名。 -->
+        <plugin filename="PointMassControl" name="gz::sim::systems::PointMassControl">
+            <link_name>baselink</link_name>
+            <topic>/@ROBOT_NAME@/cmd_vel</topic>
+        </plugin>
+
+        <!-- 里程计：替代 MecanumDrive2 原先发布的 odometry -->
+        <plugin filename="gz-sim-odometry-publisher-system" name="gz::sim::systems::OdometryPublisher">
+            <odom_topic>/@ROBOT_NAME@/odometry</odom_topic>
+            <odom_frame>odom</odom_frame>
+            <robot_base_frame>baselink</robot_base_frame>
+            <dimensions>3</dimensions>
+            <odom_publish_frequency>50</odom_publish_frequency>
+        </plugin>
+
+        <!-- ===== 原来的轮式驱动（模型动力学版），需要切回时取消注释 =====
+        <plugin filename="MecanumDrive2" name="ignition::gazebo::systems::MecanumDrive2">
+            <chassis_link>baselink</chassis_link>
+            <front_left_joint>front_left_wheel_joint</front_left_joint>
+            <front_right_joint>front_right_wheel_joint</front_right_joint>
+            <rear_left_joint>rear_left_wheel_joint</rear_left_joint>
+            <rear_right_joint>rear_right_wheel_joint</rear_right_joint>
+        </plugin>
+        -->
+    </model>
+</sdf>

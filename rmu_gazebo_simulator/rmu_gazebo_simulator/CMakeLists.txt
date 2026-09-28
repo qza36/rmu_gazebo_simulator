@@ -9,6 +9,7 @@ install(PROGRAMS
   scripts/referee_system/simple_competition_1v1.py
   scripts/normalize_mid360_frames.py
   scripts/odom_to_tf.py
+  scripts/mesh_to_pcd.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

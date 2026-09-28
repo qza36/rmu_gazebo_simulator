@@ -17,3 +17,6 @@ CATKIN_IGNORE
 *.swp
 log/
 test/
+
+# 生成的地图点云（体积大，不入库；需要时用 mesh_to_pcd.py 重新生成）
+rmu_gazebo_simulator/resource/maps/*.pcd

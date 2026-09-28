@@ -14,6 +14,17 @@ SMBU PolarBear Team robot description package for RoboMaster 2025.
 
 当前机器人描述文件基于 [rmua19_standard_robot](https://github.com/robomaster-oss/rmoss_gz_resources/tree/humble/resource/models/rmua19_standard_robot) 进行二次编辑，加入了工业相机和激光雷达等传感器。
 
+- [simple_chassis_robot](./resource/xmacro/simple_chassis_robot.sdf.xmacro)（**默认**）
+
+    只有一块 580×580mm 的正方形底盘，轮组为副对角线动力舵轮 + 主对角线无动力全向轮，
+    搭载 rplidar_a2（2D 雷达）和 Livox mid360（3D 雷达，扫描中心离地 210mm，rpy 与原模型一致）。
+    无云台、装甲板、射击机构。
+    坐标系：`odom -> baselink -> mid360 / rplidar_a2`；
+    驱动为**质点式控制**（`PointMassControl` 插件，见 `rmoss_gz_plugins`）：
+    水平方向（body 系 x/y）和偏航角速度直接赋值给 `baselink`，不受摩擦、轮子、悬挂等运动模型影响；
+    垂直方向交给物理（重力 + 碰撞），所以能正常爬坡/下坡/落地，碰撞保持有效。
+    要切回轮式动力学：注释掉 `PointMassControl` + `OdometryPublisher`，放开 `MecanumDrive2` 即可。
+
 - [simulation_robot](./resource/xmacro/simulation_robot.sdf.xmacro)
 
     搭载云台相机 industrial_camera 和激光雷达 rplidar_a2 和 Livox mid360，其中相机与 gimbal_pitch 轴固连，mid360 倾斜侧放与 chassis 固连。
@@ -138,7 +149,7 @@ None.
 
     是否使用仿真时间。
 
-- `robot_name` (str, default: "simulation_robot")
+- `robot_name` (str, default: "simple_chassis_robot")
 
     机器人 XMacro 描述文件的**名字（无需后缀）**。描述文件应位于 `package://pb2025_robot_description/resource/xmacro` 目录下。
 
